@@ -1,0 +1,27 @@
+# local_costmap:
+#   global_frame: odom
+#   robot_base_frame: base_link
+#   update_frequency: 5.0
+#   publish_frequency: 2.0
+#   static_map: false
+#   rolling_window: true
+#   width: 7
+#   height: 7
+#   resolution: 0.2
+#   transform_tolerance: 10
+  
+#   plugins:
+#    - {name: obstacle_laser,             type: "costmap_2d::VoxelLayer"}
+#    - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+#    # - {name: obstacle_layer,      type: "costmap_2d::ObstacleLayer"}
+
+#    # - {name: static_layer,         type: "costmap_2d::StaticLayer"}
+
+local_costmap:
+  global_frame: odom
+  rolling_window: true
+
+  plugins:
+    - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
+    - {name: obstacles_lanes,           type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation,                 type: "costmap_2d::InflationLayer"}
