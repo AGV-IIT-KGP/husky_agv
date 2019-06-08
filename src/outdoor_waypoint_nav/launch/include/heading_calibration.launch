@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <group ns="/outdoor_waypoint_nav">
+  <!-- Load current navsat parameters -->
+  <rosparam command="load" file="$(find outdoor_waypoint_nav)/params/navsat_params.yaml" />
+
+  <!-- Start calibration node -->
+  <node name="calibrate_heading" pkg="outdoor_waypoint_nav" type="calibrate_heading" output="screen" >
+    <remap from="/husky_velocity_controller/cmd_vel" to="/cmd_vel"/>
+    <remap from="/outdoor_waypoint_nav/odometry/filtered_map" to="/odometry/filtered_map"/>
+  </node>
+    <!-- set x linear velocity (m/s) -->
+    <param name="/outdoor_waypoint_nav/x_vel" value="0.3" />
+
+    <!-- set how long to publish velocity command (s) -->
+    <param name="/outdoor_waypoint_nav/x_vel_time" value="10" />
+  </group>
+
+</launch>
+

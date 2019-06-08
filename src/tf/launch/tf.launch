@@ -1,0 +1,8 @@
+<launch>
+
+	<node pkg="tf" type="static_transform_publisher" name="bl_lidar" args="0.0 0 0.405 0 0 0 base_link velodyne 10" />
+	<node pkg="tf" type="static_transform_publisher" name="bl_gps" args="0.0 0.2 0.33 0 0 0 base_link navsat 	 10" />
+	<node pkg="tf" type="static_transform_publisher" name="bl_imu" args="0.0 0.0 0.33 0 0 0 base_link bumblebee 10" />
+
+</launch>
+
